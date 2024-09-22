@@ -1,5 +1,5 @@
 
-# 🎨 PowerShell Profile (PowerShell Bliss)
+# 🪟 PowerShell Profile (PowerShell Bliss)
 
 A sleek and versatile PowerShell profile designed to deliver an aesthetically pleasing experience that rivals the best of Linux terminals, combining style with powerful functionality.
 
