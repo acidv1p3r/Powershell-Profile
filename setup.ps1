@@ -61,7 +61,7 @@ function Install-NerdFonts {
 # Function to install FastFetch
 function Install-FastFetch {
     try {
-        winget install --id "Cachy.FASTFETCH" --accept-source-agreements --accept-package-agreements
+        winget install fastfetch --accept-source-agreements --accept-package-agreements
         Write-Host "FastFetch installed successfully."
     }
     catch {
@@ -120,9 +120,6 @@ catch {
 
 # Font Install
 Install-NerdFonts -FontName "CascadiaCode" -FontDisplayName "CaskaydiaCove NF"
-
-# FastFetch Install
-Install-FastFetch
 
 # Final check and message to the user
 if ((Test-Path -Path $PROFILE) -and (winget list --name "OhMyPosh" -e) -and ($fontFamilies -contains "CaskaydiaCove NF")) {
