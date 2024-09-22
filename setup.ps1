@@ -61,6 +61,7 @@ function Install-NerdFonts {
 # Function to install FastFetch
 function Install-FastFetch {
     try {
+        Start-Sleep -Seconds 2  # Give time for any previous commands to complete
         winget install fastfetch --accept-source-agreements --accept-package-agreements
         Write-Host "FastFetch installed successfully."
     }
@@ -120,6 +121,9 @@ catch {
 
 # Font Install
 Install-NerdFonts -FontName "CascadiaCode" -FontDisplayName "CaskaydiaCove NF"
+
+# FastFetch Install
+Install-FastFetch
 
 # Final check and message to the user
 if ((Test-Path -Path $PROFILE) -and (winget list --name "OhMyPosh" -e) -and ($fontFamilies -contains "CaskaydiaCove NF")) {
