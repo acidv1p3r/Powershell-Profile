@@ -62,7 +62,7 @@ function Install-NerdFonts {
 function Install-FastFetch {
     try {
         Start-Sleep -Seconds 2  # Give time for any previous commands to complete
-        winget install fastfetch --accept-source-agreements --accept-package-agreements
+        winget install fastfetch
         Write-Host "FastFetch installed successfully."
     }
     catch {
