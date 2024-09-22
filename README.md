@@ -1,7 +1,7 @@
 
-# 🎨 PowerShell Profile (Pretty PowerShell)
+# 🎨 PowerShell Profile (PowerShell Bliss)
 
-A stylish and functional PowerShell profile that looks and feels almost as good as a Linux terminal.
+A sleek and versatile PowerShell profile designed to deliver an aesthetically pleasing experience that rivals the best of Linux terminals, combining style with powerful functionality.
 
 ## ✨ Features Overview
 
