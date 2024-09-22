@@ -58,6 +58,17 @@ function Install-NerdFonts {
     }
 }
 
+# Function to install FastFetch
+function Install-FastFetch {
+    try {
+        winget install --id "Cachy.FASTFETCH" --accept-source-agreements --accept-package-agreements
+        Write-Host "FastFetch installed successfully."
+    }
+    catch {
+        Write-Error "Failed to install FastFetch. Error: $_"
+    }
+}
+
 # Check for internet connectivity before proceeding
 if (-not (Test-InternetConnection)) {
     break
@@ -81,7 +92,7 @@ if (!(Test-Path -Path $PROFILE -PathType Leaf)) {
 
         Invoke-RestMethod https://github.com/acidv1p3r/powershell-profile/raw/main/Microsoft.PowerShell_profile.ps1 -OutFile $PROFILE
         Write-Host "The profile @ [$PROFILE] has been created."
-        Write-Host "If you want to make any personal changes or customizations, please do so at [$profilePath\Profile.ps1] as there is an updater in the installed profile which uses the hash to update the profile and will lead to loss of changes"
+        Write-Host "If you want to make any personal changes or customizations, please do so at [$profilePath\Profile.ps1] as there is an updater in the installed profile which uses the hash to update the profile and will lead to loss of changes."
     }
     catch {
         Write-Error "Failed to create or update the profile. Error: $_"
@@ -92,7 +103,7 @@ else {
         Get-Item -Path $PROFILE | Move-Item -Destination "oldprofile.ps1" -Force
         Invoke-RestMethod https://github.com/acidv1p3r/powershell-profile/raw/main/Microsoft.PowerShell_profile.ps1 -OutFile $PROFILE
         Write-Host "The profile @ [$PROFILE] has been created and old profile removed."
-        Write-Host "Please back up any persistent components of your old profile to [$HOME\Documents\PowerShell\Profile.ps1] as there is an updater in the installed profile which uses the hash to update the profile and will lead to loss of changes"
+        Write-Host "Please back up any persistent components of your old profile to [$HOME\Documents\PowerShell\Profile.ps1] as there is an updater in the installed profile which uses the hash to update the profile and will lead to loss of changes."
     }
     catch {
         Write-Error "Failed to backup and update the profile. Error: $_"
@@ -109,6 +120,9 @@ catch {
 
 # Font Install
 Install-NerdFonts -FontName "CascadiaCode" -FontDisplayName "CaskaydiaCove NF"
+
+# FastFetch Install
+Install-FastFetch
 
 # Final check and message to the user
 if ((Test-Path -Path $PROFILE) -and (winget list --name "OhMyPosh" -e) -and ($fontFamilies -contains "CaskaydiaCove NF")) {
