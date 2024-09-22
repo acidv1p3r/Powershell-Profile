@@ -1,48 +1,68 @@
+
 # 🎨 PowerShell Profile (Pretty PowerShell)
 
 A stylish and functional PowerShell profile that looks and feels almost as good as a Linux terminal.
 
-## ⚡ One Line Install (Elevated PowerShell Recommended)
+## ✨ Features Overview
 
-Execute the following command in an elevated PowerShell window to install the PowerShell profile:
+This PowerShell script is designed to enhance your terminal experience by introducing functions, shortcuts, and aesthetic improvements such as:
 
-```
+- **ASCII Art**: Displays a stylized title in white, with magenta separators for enhanced structure.
+- **Terminal Enhancements**:
+  - `fastfetch`: Displays system information (like neofetch).
+  - `oh-my-posh`: Initializes a custom PowerShell prompt using the `clean-detailed` theme.
+- **Navigation Shortcuts**: 
+  - Quick access to common directories (`docs`, `dtop`, `dload` for Documents, Desktop, Downloads).
+- **Directory Management**: 
+  - `mkdr`: Combines making a directory and changing to it in one step.
+- **Networking Utilities**: 
+  - `fdns`: Clears DNS cache.
+  - `IP`: Runs `ipconfig` to show network information.
+  - `PubIP`: Retrieves the public IP from an external service.
+- **System Information**:
+  - `sysinfo`: Provides detailed system info via `Get-ComputerInfo`.
+  - `uptime`: Displays system uptime (supports PowerShell 5+).
+- **Customization of PowerShell Experience**: 
+  - Custom color schemes for PSReadLine commands for improved readability.
+- **Profile Management**:
+  - `ep`: Opens the PowerShell profile for editing.
+  - `r-profile`: Reloads the profile to apply changes immediately.
+- **Enhanced Directory Listing**:
+  - `la`: Lists all files (including hidden) in an auto-sized table.
+  - `ls`: Lists only hidden files.
+
+It's a solid setup for improving workflow, providing a clean interface, and ensuring quick access to essential commands and functions!
+
+---
+
+## ⚡ One-Line Install (Elevated PowerShell Recommended)
+
+Execute the following command in an elevated PowerShell window to install the profile:
+
+```powershell
 irm "https://github.com/acidv1p3r/powershell-profile/raw/main/setup.ps1" | iex
 ```
 
+---
+
 ## 🛠️ Fix the Missing Font
 
-After running the script, you'll have two options for installing a font patched to support icons in PowerShell:
+After running the script, you'll have two options to install a patched font for PowerShell icons:
 
-### 1) You will find a downloaded `cove.zip` file in the folder you executed the script from. Follow these steps to install the patched `Caskaydia Cove` nerd font family:
+### Option 1: Manually Install `Caskaydia Cove` Nerd Font
+1. Find the downloaded `cove.zip` file in the folder where the script was executed.
+2. Extract the `cove.zip`.
+3. Locate and install the Nerd fonts.
 
-1. Extract the `cove.zip` file.
-2. Locate and install the nerd fonts.
+### Option 2: Install via `oh-my-posh`
+1. Run the command: `oh-my-posh font install`.
+2. Select from the Nerd Fonts list using arrow keys, then press `ENTER`.
+3. Done!
 
-### 2) With `oh-my-posh` (loaded automatically through the PowerShell profile script hosted on this repo):
-1. Run the command `oh-my-posh font install`
-2. A list of Nerd Fonts will appear like so:
-<pre>
-PS> oh-my-posh font install
+---
 
-   Select font
+## 🎨 Customize the Profile
 
-  > 0xProto
-    3270
-    Agave
-    AnonymousPro
-    Arimo
-    AurulentSansMono
-    BigBlueTerminal
-    BitstreamVeraSansMono
+After installation, run `Edit-Profile` to create a user-specific `profile.ps1`. You can then tweak and customize it to suit your preferences.
 
-    •••••••••
-    ↑/k up • ↓/j down • q quit • ? more</pre>
-3. With the up/down arrow keys, select the font you would like to install and press <kbd>ENTER</kbd>
-4. DONE!
-   
-## Customize this profile
-
-After the profile is installed and active, run the `Edit-Profile` function to create a separate profile file for your current user. Make any changes and customizations in this new file named `profile.ps1`.
-
-Now, enjoy your enhanced and stylish PowerShell experience! 🚀
+Enjoy your enhanced and stylish PowerShell experience! 🚀
