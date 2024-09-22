@@ -73,7 +73,7 @@ catch {
 
 # Install FastFetch
 try {
-    winget install fastfetch -y
+    winget install fastfetch
     Write-Host "FastFetch installed successfully."
 }
 catch {
