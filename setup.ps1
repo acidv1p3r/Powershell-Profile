@@ -58,18 +58,6 @@ function Install-NerdFonts {
     }
 }
 
-# Function to install FastFetch
-function Install-FastFetch {
-    try {
-        Start-Sleep -Seconds 2  # Give time for any previous commands to complete
-        winget install fastfetch
-        Write-Host "FastFetch installed successfully."
-    }
-    catch {
-        Write-Error "Failed to install FastFetch. Error: $_"
-    }
-}
-
 # Check for internet connectivity before proceeding
 if (-not (Test-InternetConnection)) {
     break
@@ -122,22 +110,22 @@ catch {
 # Font Install
 Install-NerdFonts -FontName "CascadiaCode" -FontDisplayName "CaskaydiaCove NF"
 
-# FastFetch Install
-Install-FastFetch
+# Choco install
+try {
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+    
+    # Install FastFetch via Chocolatey
+    choco install fastfetch -y
+}
+catch {
+    Write-Error "Failed to install Chocolatey or FastFetch. Error: $_"
+}
 
 # Final check and message to the user
 if ((Test-Path -Path $PROFILE) -and (winget list --name "OhMyPosh" -e) -and ($fontFamilies -contains "CaskaydiaCove NF")) {
     Write-Host "Setup completed successfully. Please restart your PowerShell session to apply changes."
 } else {
     Write-Warning "Setup completed with errors. Please check the error messages above."
-}
-
-# Choco install
-try {
-    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-}
-catch {
-    Write-Error "Failed to install Chocolatey. Error: $_"
 }
 
 # Terminal Icons Install
