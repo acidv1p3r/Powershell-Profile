@@ -73,7 +73,7 @@ catch {
 
 # Install FastFetch
 try {
-    winget install fastfetch -y --accept-source-agreements --accept-package-agreements
+    winget install fastfetch -y
     Write-Host "FastFetch installed successfully."
 }
 catch {
@@ -133,14 +133,6 @@ if ((Test-Path -Path $PROFILE) -and (winget list --name "OhMyPosh" -e) -and ($fo
 } else {
     Write-Warning "Setup completed with errors. Please check the error messages above."
 }
-
-# Choco install (not needed anymore)
-# try {
-#     Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-# }
-# catch {
-#     Write-Error "Failed to install Chocolatey. Error: $_"
-# }
 
 # Terminal Icons Install
 try {
