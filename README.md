@@ -40,7 +40,7 @@ It's a solid setup for improving workflow, providing a clean interface, and ensu
 Execute the following command in an elevated PowerShell window to install the profile:
 
 ```powershell
-irm "https://github.com/acidv1p3r/powershell-profile/raw/main/setup.ps1" | iex
+irm "https://github.com/acidv1p3r/Powershell-Profile/raw/main/setup.ps1" | iex
 ```
 
 ---
